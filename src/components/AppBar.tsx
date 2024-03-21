@@ -38,7 +38,7 @@ export const MainAppBar = (props: Props) => {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
+                E-Commerce
             </Typography>
             <Divider />
             <List>
@@ -79,7 +79,7 @@ export const MainAppBar = (props: Props) => {
                     <ChangeLanguageSelect />
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#fff' }}>
+                            <Button key={item.path} >
                                 <Link to={`/${item.path}`}>{item.name}</Link>
                             </Button>
                         ))}
