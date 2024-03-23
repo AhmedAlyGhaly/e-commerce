@@ -1,8 +1,8 @@
 import { Box, ThemeProvider } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import { MainAppBar } from "./components";
-import NightModeToggle from "./components/NightModeToggle";
 import { useColorTheme } from "./hooks/useColorTheme";
+import { NightModeToggle } from "./components/NightModeToggle";
 
 export const App = () => {
     const { theme } = useColorTheme();
