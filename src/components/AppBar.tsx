@@ -12,9 +12,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { navItem } from './navItem';
 import ChangeLanguageSelect from './ChangeLanguageSelect';
+import { SignOutButton } from '../pages';
+import { Stack } from '@mui/material';
+import { NightModeToggle } from './NightModeToggle';
 
 interface Props {
     /**
@@ -30,6 +33,8 @@ const navItems = navItem;
 export const MainAppBar = (props: Props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = useState(false);
+    const navigate = useNavigate();
+
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
@@ -76,14 +81,19 @@ export const MainAppBar = (props: Props) => {
                     >
                         E-Commerce
                     </Typography>
+                    <NightModeToggle />
+
                     <ChangeLanguageSelect />
-                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                    <Stack sx={{ display: { xs: 'none', sm: 'block' } }} spacing={1} direction="row">
                         {navItems.map((item) => (
-                            <Button key={item.path} >
-                                <Link to={`/${item.path}`}>{item.name}</Link>
+                            <Button size="small" variant="contained" key={item.path} onClick={() => {
+                                navigate(`/${item.path}`);
+                            }}>
+                                {item.name}
                             </Button>
                         ))}
-                    </Box>
+                        <SignOutButton />
+                    </Stack>
                 </Toolbar>
             </AppBar>
             <nav>

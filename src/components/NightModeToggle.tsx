@@ -11,24 +11,10 @@ export const NightModeToggle = () => {
     };
 
     return (
-        <Box
-            sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                bgcolor: "background.default",
-                color: "text.primary",
-                borderColor: "text.primary",
-                border: "1px solid",
-                borderRadius: 25,
-                p: 2,
-            }}
-        >
-            {mode} mode
-            <IconButton sx={{ ml: 1 }} onClick={handleToggleClick} color="inherit">
-                {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
-            </IconButton>
-        </Box>
+
+        <IconButton sx={{ ml: 1 }} onClick={handleToggleClick} color="inherit">
+            {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
     );
 };
 
