@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { App } from './App.tsx';
 import './locales/i18n.ts';
-import { Account, AllCategories, Contact, ErrorPage, Home, MyOrders } from './pages';
+import { AllCategories, Contact, ErrorPage, Home, MyOrders } from './pages';
 
 
 const router = createBrowserRouter([
@@ -30,10 +30,6 @@ const router = createBrowserRouter([
       {
         path: "AllCategories",
         element: <AllCategories />,
-      },
-      {
-        path: "Account",
-        element: <Account />,
       },
     ],
   },

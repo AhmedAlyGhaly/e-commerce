@@ -1,5 +1,4 @@
 export * from "./Contact";
-export * from "./Account";
 export * from "./Home";
 export * from "./NoPage";
 export * from "./allCategories";
