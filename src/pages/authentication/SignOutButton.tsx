@@ -1,7 +1,8 @@
 import { Button } from '@mui/material';
-import { supabase } from '../providers/instance';
+import { supabase } from '../../providers/instance';
 
-export const SignOutButton = () => {
+
+export const SignOutButton: React.FC = () => {
     const handleSignOut = async () => {
         try {
             const { error } = await supabase.auth.signOut();
@@ -10,7 +11,7 @@ export const SignOutButton = () => {
             }
             console.log('User signed out successfully.');
         } catch (error) {
-            console.error('Error signing out:', error.message);
+            console.error('Error signing out:', (error as Error).message);
         }
     };
 
@@ -20,4 +21,3 @@ export const SignOutButton = () => {
         </Button>
     );
 };
-

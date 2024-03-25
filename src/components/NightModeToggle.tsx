@@ -1,7 +1,7 @@
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { Box, IconButton } from "@mui/material";
-import { useColorTheme } from "../hooks/useColorTheme";
+import { IconButton } from "@mui/material";
+import { useColorTheme } from "../theme/useColorTheme";
 
 export const NightModeToggle = () => {
     const { mode, toggleTheme } = useColorTheme();

@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material";
 import { useMemo } from "react";
-import { getDesignTokens } from "../theme/theme";
-import { useMode } from "../theme/useMode";
+import { getDesignTokens } from "./theme";
+import { useMode } from "./useMode";
 
 export const useColorTheme = () => {
   const { mode, toggle } = useMode();

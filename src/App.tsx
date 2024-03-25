@@ -3,7 +3,7 @@ import { Session } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { MainAppBar } from "./components";
-import { useColorTheme } from "./hooks/useColorTheme";
+import { useColorTheme } from "./theme/useColorTheme";
 import { SignInForm } from "./pages";
 import { supabase } from "./providers/instance";
 
@@ -23,13 +23,14 @@ export const App = () => {
 
 
     return (
-        <Box component="main" sx={{ p: 8 }} >
-            {!session ? <SignInForm /> :
-                <ThemeProvider theme={theme}>
-                    <MainAppBar />
-                    <Outlet />
-                </ThemeProvider>}
-        </Box>
+        <ThemeProvider theme={theme}>
+            <Box component="main" sx={{ p: 8, bgcolor: 'background.paper' }} >
+                {!session ?
+                    <SignInForm /> :
+                    <><MainAppBar /><Outlet /></>
+                }
+            </Box>
+        </ThemeProvider>
     );
 }
 
