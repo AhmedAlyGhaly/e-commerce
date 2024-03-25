@@ -1,4 +1,4 @@
-import { Box, ThemeProvider } from "@mui/material";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import { Session } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
@@ -24,7 +24,8 @@ export const App = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Box component="main" sx={{ p: 8, bgcolor: 'background.paper' }} >
+            <CssBaseline />
+            <Box component="main" sx={{ p: 8, bgcolor: 'background.paper', minHeight: '100vh' }} >
                 {!session ?
                     <SignInForm /> :
                     <><MainAppBar /><Outlet /></>

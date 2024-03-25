@@ -62,7 +62,6 @@ export const MainAppBar = (props: Props) => {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
             <AppBar component="nav">
                 <Toolbar>
                     <IconButton
