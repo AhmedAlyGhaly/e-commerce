@@ -3,9 +3,10 @@ import { Session } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { MainAppBar } from "./components";
-import { useColorTheme } from "./theme/useColorTheme";
 import { SignInForm } from "./pages";
-import { supabase } from "./providers/instance";
+import { supabase } from "./providers";
+import { useColorTheme } from "./theme";
+import { CartProvider } from "./context";
 
 export const App = () => {
     const { theme } = useColorTheme();
@@ -28,7 +29,7 @@ export const App = () => {
             <Box component="main" sx={{ p: 8, bgcolor: 'background.paper', minHeight: '100vh' }} >
                 {!session ?
                     <SignInForm /> :
-                    <><MainAppBar /><Outlet /></>
+                    <CartProvider><MainAppBar /><Outlet /></CartProvider>
                 }
             </Box>
         </ThemeProvider>
