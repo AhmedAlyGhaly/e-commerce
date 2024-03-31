@@ -2,7 +2,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Box, Button, IconButton, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { supabase } from '../../providers/instance';
+import { supabase } from '../../providers';
 interface SignInFormProps { }
 
 interface FormValues {

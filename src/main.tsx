@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { App } from './App.tsx';
 import './locales/i18n.ts';
-import { AllCategories, Contact, ErrorPage, Home, MyOrders } from './pages';
+import { CreateCart, ErrorPage, Home, MyOrders } from './pages';
 
 
 const router = createBrowserRouter([
@@ -16,8 +16,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "contact",
-        element: <Contact />,
+        path: "CreateCart",
+        element: <CreateCart />,
       },
       {
         path: "home",
@@ -26,10 +26,6 @@ const router = createBrowserRouter([
       {
         path: "MyOrder",
         element: <MyOrders />,
-      },
-      {
-        path: "AllCategories",
-        element: <AllCategories />,
       },
     ],
   },

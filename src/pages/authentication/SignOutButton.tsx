@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import { supabase } from '../../providers/instance';
+import { supabase } from '../../providers';
 
 
 export const SignOutButton: React.FC = () => {

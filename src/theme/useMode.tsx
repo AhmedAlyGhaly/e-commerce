@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { createJSONStorage, devtools, persist } from 'zustand/middleware';
-import { StorageKey } from '../types/constants';
+import { StorageKey } from '../types';
 
 const storage = createJSONStorage(() => localStorage);
 

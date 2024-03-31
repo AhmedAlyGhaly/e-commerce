@@ -1,22 +1,20 @@
 import MenuIcon from '@mui/icons-material/Menu';
+import { Stack } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { navItem } from './navItem';
-import ChangeLanguageSelect from './ChangeLanguageSelect';
+import { useNavigate } from 'react-router-dom';
 import { SignOutButton } from '../pages';
-import { Stack } from '@mui/material';
+import ChangeLanguageSelect from './ChangeLanguageSelect';
+import { navItem } from './navItem';
 import { NightModeToggle } from './NightModeToggle';
 
 interface Props {
@@ -48,10 +46,12 @@ export const MainAppBar = (props: Props) => {
             <Divider />
             <List>
                 {navItems.map((item) => (
-                    <ListItem key={item.name} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center' }}>
-                            <Link to={`/${item.path}`}>{item.name}</Link>
-                        </ListItemButton>
+                    <ListItem key={item.name} >
+                        <Button size="small" variant="contained" key={item.path} onClick={() => {
+                            navigate(`/${item.path}`);
+                        }}>
+                            {item.name}
+                        </Button>
                     </ListItem>
                 ))}
             </List>
