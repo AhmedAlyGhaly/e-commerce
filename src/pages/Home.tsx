@@ -1,20 +1,15 @@
 import { TextField, Stack, Grid } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import { ProductCard } from "./products";
+import { ProductCard, ProductCardProps } from "./products";
 import { supabase } from "../providers";
 import { useProductFilter } from "../hooks";
 
-export interface Product {
-    id: string;
-    title: string;
-    description: string;
-    price: string;
-}
+
 
 export const Home = () => {
     const { t } = useTranslation();
-    const [products, setProducts] = useState<Product[]>([]);
+    const [products, setProducts] = useState<ProductCardProps[]>([]);
     const { filteredResults, setFilter } = useProductFilter(products);
 
     async function getProducts() {
@@ -34,6 +29,8 @@ export const Home = () => {
     useEffect(() => {
         getProducts();
     }, []);
+
+    console.log(filteredResults)
 
     return (
         <>
@@ -57,6 +54,7 @@ export const Home = () => {
                             title={product.title}
                             description={product.description}
                             price={product.price}
+                            images={product.images}
                         />
                     </Grid>
                 ))}

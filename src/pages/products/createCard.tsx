@@ -2,13 +2,16 @@ import { TextField, Button, Box } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../providers';
+import { faker } from '@faker-js/faker';
 
 export const CreateCard = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
-        const { error } = await supabase.from('products').insert([data]);
+        const seed = `${data.id}-${data.title}-${data.description}`;
+        const imageUrl = faker.image.imageUrl(640, 480, 'food', seed);
+        const { error } = await supabase.from('products').insert([{ ...data, images: imageUrl }]);
 
         if (error) {
             console.error(error);

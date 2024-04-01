@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
+import { ProductCardProps } from "../pages";
 
-export interface Product {
-    id: string;
-    title: string;
-    description: string;
-    price: string;
-}
+
 
 export interface ProductFilter {
     title: string;
@@ -13,8 +9,8 @@ export interface ProductFilter {
     description: string;
 }
 
-export const useProductFilter = (products: Product[]) => {
-    const [filteredResults, setFilteredResults] = useState<Product[]>(products);
+export const useProductFilter = (products: ProductCardProps[]) => {
+    const [filteredResults, setFilteredResults] = useState<ProductCardProps[]>(products);
     const [filters, setFilters] = useState<ProductFilter>({
         title: '',
         price: '',
